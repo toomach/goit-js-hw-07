@@ -1,3 +1,5 @@
+"use strict";
+
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -27,3 +29,11 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+const galleryEl = document.querySelector('.gallery');
+
+const galleryList = images.map(({url, alt}) => {
+  return `<li><img src='${url}' alt='${alt}' width='360'></li>`;
+});
+
+galleryEl.insertAdjacentHTML('beforeend', galleryList.join(''));
